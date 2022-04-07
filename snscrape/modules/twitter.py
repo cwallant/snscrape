@@ -629,8 +629,10 @@ class _TwitterAPIScraper(snscrape.base.Scraper):
 			if not value:
 				continue
 			if value['type'] == 'STRING':
+				cardKwargs['title'] = 'title'
 				cardKwargs[kwarg] = value['string_value']
 			elif value['type'] == 'IMAGE':
+				cardKwargs['title'] = 'title'
 				cardKwargs[kwarg] = value['image_value']['url']
 			else:
 				raise snscrape.base.ScraperError(f'Unknown card value type: {value["type"]!r}')
