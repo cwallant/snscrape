@@ -628,6 +628,7 @@ class _TwitterAPIScraper(snscrape.base.Scraper):
 				value = next((o['value'] for o in card['legacy']['binding_values'] if o['key'] == key), None)
 			if not value:
 				continue
+			value['title'] = 'title'
 			if value['type'] == 'STRING':
 				cardKwargs['title'] = 'title'
 				cardKwargs[kwarg] = value['string_value']
