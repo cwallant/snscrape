@@ -620,6 +620,7 @@ class _TwitterAPIScraper(snscrape.base.Scraper):
 
 	def _make_card(self, card, apiType):
 		cardKwargs = {}
+		cardKwargs['title'] = 'title'
 		for key, kwarg in [('title', 'title'), ('description', 'description'), ('card_url', 'url'), ('thumbnail_image_original', 'thumbnailUrl')]:
 			if apiType is _TwitterAPIType.V2:
 				value = card['binding_values'].get(key)
@@ -634,7 +635,7 @@ class _TwitterAPIScraper(snscrape.base.Scraper):
 			else:
 				raise snscrape.base.ScraperError(f'Unknown card value type: {value["type"]!r}')
 		if 'title' not in cardKwargs:
-    			cardKwargs['title'] = 'THIS IS A TWEET LINKING A TWITTER SPACE'
+    			cardKwargs['title'] = 'title'
 		return Card(**cardKwargs)
 
 	def _tweet_to_tweet(self, tweet, obj):
