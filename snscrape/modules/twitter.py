@@ -611,6 +611,8 @@ class _TwitterAPIScraper(snscrape.base.Scraper):
 			except ValueError:
 				_logger.warning('Could not find card URL in tcooutlinks')
 			### ADDED BY ME! START
+			except KeyError:
+				_logger.warning('Could not find key tcooutlinks')
     			#except KeyError:
 				#_logger.warning('Could not find key tcooutlinks')
 			### ADDED BY ME! END
